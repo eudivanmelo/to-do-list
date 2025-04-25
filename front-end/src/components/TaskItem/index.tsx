@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import './style.css';
-import { FiCheckCircle, FiEye, FiTrash2 } from 'react-icons/fi';
+import { FiCheckCircle, FiCircle, FiTrash2 } from 'react-icons/fi';
 
 export interface TaskItemProps {
     title: string;
@@ -23,8 +23,12 @@ export const TaskItem = ({title, description, completed = false}: TaskItemProps)
             </div>
             
             <div className="task-item-actions">
-                <button className='finish' onClick={handleFinish}><FiCheckCircle size={20} /></button>
-                <button className='view'><FiEye size={20} /></button>
+                <button className='finish' onClick={handleFinish}>
+                    {!completedState ? 
+                        <FiCircle size={20} /> : 
+                        <FiCheckCircle size={20} color='28A745' />
+                    }
+                    </button>
                 <button className='delete'> <FiTrash2 size={20} /></button>
             </div>
         </div>
