@@ -1,0 +1,26 @@
+.home {
+    background-color: #FFFFFF;
+    color: #1A1A1A;
+    padding: 0;
+    margin: 0;
+}
+
+.task-container {
+    min-width: 432px;
+    width: 30%;
+    margin: 16px auto;
+    background-color: #F8F8F8;
+    border-radius: 16px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.task-container h1 {
+    font-size: 24px;
+    font-weight: 600;
+    color: #1A1A1A;
+    padding: 16px;
+    text-align: center;
+    background-color: #E0E0E0;
+    border-radius: 16px 16px 0 0;
+    margin: 0;
+}

@@ -1,0 +1,79 @@
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 32px;
+    width: 100%;
+    overflow: hidden;
+    margin-bottom: 2px;
+}
+
+.task-item-info {
+    text-align: left;
+    flex: 1;
+    padding-left: 16px;
+    border-left: 8px solid #DC3545;
+}
+
+.task-item-info h2,
+.task-item-info p {
+  margin: 0;
+  padding: 0;
+  line-height: 1.5;
+}
+
+.task-item-info h2 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1A1A1A;
+}
+
+.task-item-info p {
+    font-size: 1rem;
+    color: #555555;
+}
+
+.task-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    margin-right: 12px;
+}
+
+.task-item button {
+    background-color: #1A1A1A;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    transition: color 0.2s;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.task-item button:hover {
+    background-color: #333333;
+}
+
+.task-item button:disabled {
+    background-color: #CCCCCC;
+    cursor: not-allowed;
+}
+
+.task-item button.view  {
+    background-color: #17A2B8;
+}
+
+.task-item button.view:hover  {
+  background-color: #34b9ce;
+}
+
+.task-item button.delete {
+  background-color: #DC3545;
+}
+
+.task-item button.delete:hover  {
+  background-color: #e4505f;
+}
