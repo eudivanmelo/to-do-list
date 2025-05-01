@@ -23,7 +23,10 @@ export const TaskItem = ({task}: TaskItemProps) => {
     };
 
     const handleDelete = () => {
-        deleteTaskMutation.mutate(task.id);
+        const confirmDelete = window.confirm('Tem certeza que deseja excluir essa tarefa?');
+        if (confirmDelete){
+            deleteTaskMutation.mutate(task.id);
+        }   
     };
 
     return (
