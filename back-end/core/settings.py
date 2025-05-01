@@ -16,6 +16,11 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+CORS_ALLOW_ALL_ORIGINS = True # Permitir todas as origens para desenvolvimento
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    # "https://seu-frontend.com",
+]
 
 # Application definition
 
@@ -27,11 +32,14 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'corsheaders',
+
     'rest_framework',
     'task',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
