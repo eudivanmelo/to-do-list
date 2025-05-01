@@ -7,7 +7,6 @@ export const useCreateTask = () => {
 
     return useMutation({
         mutationFn: async (newTask: Omit<Task, 'id'| 'completed' | 'created_at' | 'updated_at'>) => {
-            console.log(newTask);
             const response = await api.post('task/', newTask);
             return response.data;
         },
