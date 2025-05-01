@@ -1,25 +1,36 @@
 import { useState } from 'react';
 import './style.css';
 import { FiCheckCircle, FiCircle, FiTrash2 } from 'react-icons/fi';
+import { Task } from '@/models/task';
+import { useDeleteTask, useUpdateTask } from '@/services/mutations/tasks';
 
 export interface TaskItemProps {
-    title: string;
-    description: string;
-    completed?: boolean;
+    task: Task;
 }
 
-export const TaskItem = ({title, description, completed = false}: TaskItemProps) => {
-    const [completedState, setCompletedState] = useState(completed);
+export const TaskItem = ({task}: TaskItemProps) => {
+    const [completedState, setCompletedState] = useState(task.completed);
+    const updateTaskMutation = useUpdateTask();
+    const deleteTaskMutation = useDeleteTask();
 
     const handleFinish = () => {
         setCompletedState(!completedState);
+
+        updateTaskMutation.mutate({
+            ...task,
+            completed: !completedState,
+        });
+    };
+
+    const handleDelete = () => {
+        deleteTaskMutation.mutate(task.id);
     };
 
     return (
         <div className="task-item">
             <div className="task-item-info" style={{ borderLeftColor: completedState ? '#28A745' : '#DC3545' }}>
-                <h2>{title}</h2>
-                <p>{description}</p>
+                <h2>{task.title}</h2>
+                <p>{task.description}</p>
             </div>
             
             <div className="task-item-actions">
@@ -29,7 +40,7 @@ export const TaskItem = ({title, description, completed = false}: TaskItemProps)
                         <FiCheckCircle size={20} color='28A745' />
                     }
                     </button>
-                <button className='delete'> <FiTrash2 size={20} /></button>
+                <button className='delete' onClick={handleDelete}> <FiTrash2 size={20} /></button>
             </div>
         </div>
     );
